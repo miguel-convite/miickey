@@ -1,178 +1,393 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+/* ==========================================
+   RESET E CONFIGURAÇÕES GERAIS
+========================================== */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <meta
-        name="description"
-        content="Um convite especial para celebrar meu primeiro aniversário."
-    >
+body {
+    background-color: #e8d9bb;
+    font-family: Georgia, serif;
+}
 
-    <title>Safari do Mickey | Convite</title>
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
 
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-</head>
-
-<body>
-
-    <main class="convite">
-
-        <!-- ==========================================
-             TELA INICIAL
-        =========================================== -->
-
-        <section
-            class="tela-inicial"
-            id="tela-inicial"
-        >
-
-            <!-- A imagem e o botão ficam juntos nesta área -->
-
-            <div class="area-imagem-capa">
-
-                <img
-                    src="assets/images/capa.png"
-                    alt="Convite Safari do Mickey"
-                    class="imagem-capa"
-                >
-
-                <button
-                    id="botao-iniciar"
-                    class="botao-iniciar"
-                >
-                    Abrir convite
-                </button>
-
-            </div>
-
-        </section>
+.convite {
+    width: 100%;
+    min-height: 100vh;
+}
 
 
-        <!-- ==========================================
-             TELA DO VÍDEO
-        =========================================== -->
+/* ==========================================
+   CONTROLE DAS TELAS
+========================================== */
 
-        <section
-            class="tela-video"
-            id="tela-video"
-            hidden
-        >
+.tela-inicial,
+.tela-video,
+.tela-convite,
+.tela-presentes {
+    width: 100%;
+    min-height: 100vh;
+}
 
-            <video
-                id="video-abertura"
-                class="video-abertura"
-                playsinline
-                preload="metadata"
-                poster="assets/images/capa.png"
-            >
-
-                <source
-                    src="https://res.cloudinary.com/ucfjmbc9/video/upload/v1793909469/abertura.mp4"
-                    type="video/mp4"
-                >
-
-                Seu navegador não consegue reproduzir este vídeo.
-
-            </video>
-
-            <button
-                id="botao-pular"
-                class="botao-pular"
-            >
-                Pular abertura
-            </button>
-
-        </section>
+[hidden] {
+    display: none !important;
+}
 
 
-        <!-- ==========================================
-             TELA PRINCIPAL DO CONVITE
-        =========================================== -->
+/* ==========================================
+   TELA INICIAL
+========================================== */
 
-        <section
-            class="tela-convite"
-            id="tela-convite"
-            hidden
-        >
-
-            <div class="area-arte">
-
-                <img
-                    src="assets/images/convite-principal.png"
-                    alt="Convite de aniversário Safari do Mickey"
-                    id="imagem-convite"
-                    class="imagem-convite"
-                >
-
-                <!-- CONFIRMAR PRESENÇA -->
-
-                <button
-                    id="botao-whatsapp"
-                    class="area-clicavel area-whatsapp"
-                    aria-label="Confirmar presença"
-                ></button>
+.tela-inicial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
 
 
-                <!-- SUGESTÃO DE PRESENTE -->
+/* ==========================================
+   ÁREA DA IMAGEM DA CAPA
+========================================== */
 
-                <button
-                    id="botao-presentes"
-                    class="area-clicavel area-presentes"
-                    aria-label="Sugestão de presente"
-                ></button>
+.area-imagem-capa {
+    position: relative;
+
+    width: 100%;
+    max-width: 480px;
+}
+
+.imagem-capa {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    border-radius: 12px;
+}
 
 
-                <!-- LOCALIZAÇÃO -->
+/* ==========================================
+   BOTÃO ABRIR CONVITE
+========================================== */
 
-                <button
-                    id="botao-localizacao"
-                    class="area-clicavel area-localizacao"
-                    aria-label="Localização"
-                ></button>
+.botao-iniciar {
+    position: absolute;
 
-            </div>
+    /*
+       O botão fica DENTRO da área da imagem.
+       Assim como o botão "Voltar".
+    */
 
-        </section>
+    top: 75%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
+
+    background-color: rgba(57, 74, 50, 0.95);
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 30px;
+
+    padding: 15px 35px;
+
+    font-size: 17px;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.3s,
+        background-color 0.3s;
+}
+
+.botao-iniciar:hover {
+    background-color: #65764c;
+
+    transform: translate(-50%, -50%) scale(1.05);
+}
 
 
-        <!-- ==========================================
-             TELA DE SUGESTÕES DE PRESENTES
-        =========================================== -->
+/* ==========================================
+   TELA DO VÍDEO
+========================================== */
 
-        <section
-            class="tela-presentes"
-            id="tela-presentes"
-            hidden
-        >
+.tela-video {
+    position: relative;
 
-            <div class="area-imagem-presentes">
+    background-color: #000000;
 
-                <img
-                    src="assets/images/presentes.png"
-                    alt="Sugestões de presentes"
-                    class="imagem-presentes"
-                >
+    display: flex;
 
-                <button
-                    id="botao-voltar-presentes"
-                    class="botao-voltar-presentes"
-                >
-                    ← Voltar
-                </button>
+    align-items: center;
+    justify-content: center;
 
-            </div>
+    overflow: hidden;
+}
 
-        </section>
+.video-abertura {
+    display: block;
 
-    </main>
+    width: 100%;
+    height: 100vh;
 
-    <script src="js/script.js"></script>
+    object-fit: contain;
+}
 
-</body>
+.botao-pular {
+    position: absolute;
 
-</html>
+    top: 20px;
+    right: 20px;
+
+    z-index: 2;
+
+    background-color: rgba(0, 0, 0, 0.65);
+
+    color: #ffffff;
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    border-radius: 25px;
+
+    padding: 12px 18px;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   TELA PRINCIPAL
+========================================== */
+
+.tela-convite {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    animation: aparecer 0.7s ease;
+}
+
+.area-arte {
+    position: relative;
+
+    width: 100%;
+    max-width: 550px;
+}
+
+.imagem-convite {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* ==========================================
+   ÁREAS INVISÍVEIS CLICÁVEIS
+========================================== */
+
+.area-clicavel {
+    position: absolute;
+
+    border: none;
+
+    background: transparent;
+
+    padding: 0;
+    margin: 0;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+
+/* ==========================================
+   CONFIRMAR PRESENÇA
+========================================== */
+
+.area-whatsapp {
+    left: 19%;
+    top: 58%;
+
+    width: 16%;
+    height: 10%;
+}
+
+
+/* ==========================================
+   SUGESTÃO DE PRESENTE
+========================================== */
+
+.area-presentes {
+    left: 40%;
+    top: 58%;
+
+    width: 17%;
+    height: 10%;
+}
+
+
+/* ==========================================
+   LOCALIZAÇÃO
+========================================== */
+
+.area-localizacao {
+    left: 61%;
+    top: 58%;
+
+    width: 17%;
+    height: 10%;
+}
+
+
+/* ==========================================
+   TELA DE PRESENTES
+========================================== */
+
+.tela-presentes {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background-color: #e8d9bb;
+}
+
+.area-imagem-presentes {
+    position: relative;
+
+    width: 100%;
+    max-width: 550px;
+}
+
+.imagem-presentes {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* ==========================================
+   BOTÃO VOLTAR
+========================================== */
+
+.botao-voltar-presentes {
+    position: absolute;
+
+    top: 20px;
+    left: 20px;
+
+    z-index: 10;
+
+    background-color: rgba(57, 74, 50, 0.9);
+
+    color: #ffffff;
+
+    border: none;
+
+    border-radius: 25px;
+
+    padding: 10px 18px;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s,
+        background-color 0.3s;
+}
+
+.botao-voltar-presentes:hover {
+    transform: scale(1.05);
+
+    background-color: #65764c;
+}
+
+
+/* ==========================================
+   ANIMAÇÃO DE ENTRADA
+========================================== */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==========================================
+   ADAPTAÇÃO PARA CELULARES
+========================================== */
+
+@media (max-width: 480px) {
+
+    .tela-inicial {
+        padding: 15px;
+    }
+
+    .botao-iniciar {
+        top: 75%;
+
+        font-size: 15px;
+
+        padding: 12px 28px;
+    }
+
+    .botao-pular {
+        top: 15px;
+        right: 12px;
+
+        font-size: 12px;
+
+        padding: 10px 14px;
+    }
+
+    .tela-convite {
+        padding: 10px;
+    }
+
+    .tela-presentes {
+        padding: 10px;
+    }
+
+    .botao-voltar-presentes {
+        top: 12px;
+        left: 12px;
+
+        font-size: 13px;
+
+        padding: 8px 14px;
+    }
+
+}
