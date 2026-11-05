@@ -40,9 +40,9 @@ const telefoneWhatsApp = "5521967166292";
 // automaticamente no WhatsApp
 const mensagemWhatsApp =
     "Olá! Confirmo minha presença no safari do Miguel. " +
-    "Por favor, informe abaixo: " +
-    "Nomes e idades das crianças: _______ " +
-    "Nomes dos adultos: _______ " +
+    "Por favor, informe abaixo:\n\n" +
+    "Nomes e idades das crianças:\n\n" +
+    "Nomes dos adultos:\n\n" +
     "Nos vemos na savana!";
 
 
