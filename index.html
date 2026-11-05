@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Um convite especial para celebrar meu primeiro aniversário."
+    >
+
+    <title>Safari do Mickey | Convite</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+    <main class="convite">
+
+        <!-- ==========================================
+             TELA INICIAL
+        =========================================== -->
+
+        <section
+            class="tela-inicial"
+            id="tela-inicial"
+        >
+
+            <img
+                src="assets/images/capa.png"
+                alt="Convite Safari do Mickey"
+                class="imagem-capa"
+            >
+
+            <button
+                id="botao-iniciar"
+                class="botao-iniciar"
+            >
+                Abrir convite
+            </button>
+
+        </section>
+
+
+        <!-- ==========================================
+             TELA DO VÍDEO
+        =========================================== -->
+
+        <section
+            class="tela-video"
+            id="tela-video"
+            hidden
+        >
+
+            <video
+                id="video-abertura"
+                class="video-abertura"
+                playsinline
+                preload="metadata"
+                poster="assets/images/capa.png"
+            >
+
+                <!--
+                    VÍDEO HOSPEDADO NO CLOUDINARY
+
+                    O arquivo original está em .MOV.
+                    Aqui pedimos ao Cloudinary para
+                    entregar a versão .MP4.
+                -->
+
+                <source
+                    src="https://res.cloudinary.com/ucfjmbc9/video/upload/v1793909469/abertura.mp4"
+                    type="video/mp4"
+                >
+
+                Seu navegador não consegue reproduzir este vídeo.
+
+            </video>
+
+
+            <button
+                id="botao-pular"
+                class="botao-pular"
+            >
+                Pular abertura
+            </button>
+
+        </section>
+
+
+        <!-- ==========================================
+             TELA PRINCIPAL DO CONVITE
+        =========================================== -->
+
+        <section
+            class="tela-convite"
+            id="tela-convite"
+            hidden
+        >
+
+            <div class="area-arte">
+
+                <img
+                    src="assets/images/convite-principal.png"
+                    alt="Convite de aniversário Safari do Mickey"
+                    id="imagem-convite"
+                    class="imagem-convite"
+                >
+
+                <!-- ÁREAS INVISÍVEIS CLICÁVEIS -->
+
+                <!-- CONFIRMAR PRESENÇA -->
+
+                <button
+                    id="botao-whatsapp"
+                    class="area-clicavel area-whatsapp"
+                    aria-label="Confirmar presença"
+                ></button>
+
+
+                <!-- SUGESTÃO DE PRESENTE -->
+
+                <button
+                    id="botao-presentes"
+                    class="area-clicavel area-presentes"
+                    aria-label="Sugestão de presente"
+                ></button>
+
+
+                <!-- LOCALIZAÇÃO -->
+
+                <button
+                    id="botao-localizacao"
+                    class="area-clicavel area-localizacao"
+                    aria-label="Localização"
+                ></button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==========================================
+             TELA DE SUGESTÕES DE PRESENTES
+        =========================================== -->
+
+        <section
+            class="tela-presentes"
+            id="tela-presentes"
+            hidden
+        >
+
+            <div class="area-imagem-presentes">
+
+                <img
+                    src="assets/images/presentes.png"
+                    alt="Sugestões de presentes"
+                    class="imagem-presentes"
+                >
+
+                <button
+                    id="botao-voltar-presentes"
+                    class="botao-voltar-presentes"
+                >
+                    ← Voltar
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
